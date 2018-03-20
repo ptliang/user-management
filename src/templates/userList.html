@@ -1,0 +1,15 @@
+<div class="col">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr><th>Status</th><th>Email</th><th>Access</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="user in $ctrl.userList">
+        <td class="align-middle"><span class="badge badge-pill" ng-class="user.status == 'Active' ? 'badge-light' : 'badge-info'">{{ user.status }}</span></td>
+        <td class="align-middle">{{ user.email}}</td>
+        <td class="align-middle"><span class="badge" ng-class="user.access == 'Full' ? 'badge-success' : 'badge-warning'">{{ user.access }}</span></td>
+        <td><user-actions user="user"></user-actions></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

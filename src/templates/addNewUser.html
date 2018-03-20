@@ -1,0 +1,18 @@
+<div class="col">
+  <h5 ng-transclude></h5>
+  <form>
+    <div class="form-row">
+      <div class="col-6">
+        <input type="text" class="form-control" placeholder="Enter email of user to invite" ng-model="$ctrl.email" />
+      </div>
+      <div class="col">
+        <select class="form-control" ng-model="$ctrl.access" ng-options="value for value in $ctrl.accessLevels">
+          <option value="">Select Access</option>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="form-control btn btn-primary" ng-click="$ctrl.sendInvite()">Send Invite</button>
+      </div>
+    </div>
+  </form>
+</div>
