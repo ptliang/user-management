@@ -13,5 +13,9 @@ App.component('addNewUser', {
           $rootScope.$emit('NewUserInviteSent');
         }.bind(this))
     };
+
+    this.isFormFilled = function() {
+      return this.email != '' && this.access != undefined;
+    }
   }]
 });

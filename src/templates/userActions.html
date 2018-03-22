@@ -1,4 +1,4 @@
 <div>
-  <button class="btn btn-light btn-sm" ng-if="$ctrl.user.status == 'Invited'">Resend Invite</button>
-  <button class="btn btn-light btn-sm">{{ $ctrl.revoke }}</button>
+  <button class="btn btn-light btn-sm"  ng-click="$ctrl.resendInvite()" ng-if="$ctrl.user.status == 'Invited'">Resend Invite</button>
+  <button class="btn btn-light btn-sm" ng-click="$ctrl.revokeAccess()">{{ $ctrl.revoke }}</button>
 </div>

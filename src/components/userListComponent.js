@@ -8,12 +8,13 @@ App.component('userList', {
         $scope.$apply();
       }.bind(this));
 
-    $rootScope.$on('NewUserInviteSent', function(event, ...args) {
+    $rootScope.$on('NewUserInviteSent', function (event, ...args) {
       usersService.getUsers()
-        .then(function(res) {
+        .then(function (res) {
+          console.log(this)
           this.userList = res;
           $scope.$apply();
         }.bind(this));
-    })
+    }.bind(this));
   }]
 })
