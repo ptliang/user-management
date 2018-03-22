@@ -1,4 +1,4 @@
-function UserActionsController($scope, $element, $attrs, userService) {
+function UserActionsController($scope, $element, $attrs, usersService) {
   this.$onInit = function(){
     if (this.user.status == 'Invited') {
       this.revoke = 'Revoke Invite';
@@ -15,7 +15,7 @@ function UserActionsController($scope, $element, $attrs, userService) {
 
 App.component('userActions', {
   templateUrl: './src/templates/userActions.html',
-  controller: ['$scope', '$element', '$attrs', 'userService', UserActionsController],
+  controller: ['$scope', '$element', '$attrs', 'usersService', UserActionsController],
   bindings: {
     user: '<'
   }
