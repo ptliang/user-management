@@ -1,32 +1,9 @@
-App.factory('usersService', function() {
-    var list = [
-      {
-        status: 'Invited',
-        email: 'test@example.com',
-        access: 'Limited'
-      },
-      {
-        status: 'Active',
-        email: 'Bill@example.com',
-        access: 'Full'
-      },
-      {
-        status: 'Active',
-        email: 'John@example.com',
-        access: 'Full'
-      },
-      {
-        status: 'Active',
-        email: 'Mike@example.com',
-        access: 'Limited'
-      }
-    ];
+// users service to call Scalyr API
+App.factory('usersService', function($q) {
 
-    var sendInvite = function(user) {
-      return new Promise(function(resolve, reject) {
-        list.push({email, access} = Object.assign({status: 'Invited'}, user));
-        resolve(true);
-      })
+    // send invite, convert 3rd party Promise to Angular style Promise using $q
+    var sendInvite = function(users, accessLevel) {
+      return $q.when(window.scalyrBackend.inviteUsers(users, accessLevel));
     };
 
     var revokeAccess = function(user) {
@@ -38,11 +15,7 @@ App.factory('usersService', function() {
     };
 
     var getUsers = function() {
-      let userList = list;
-
-      return new Promise(function(resolve, reject) {
-        resolve(userList);
-      })
+      return $q.when(window.scalyrBackend.getUsers());
     };
 
     return {

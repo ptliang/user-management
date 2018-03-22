@@ -1,6 +1,7 @@
+// user action buttons to handle resend and revoke access
 function UserActionsController($scope, $element, $attrs, usersService) {
   this.$onInit = function(){
-    if (this.user.status == 'Invited') {
+    if (this.user.state == 'invited') {
       this.revoke = 'Revoke Invite';
     }
     else {

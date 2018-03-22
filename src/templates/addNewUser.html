@@ -14,5 +14,6 @@
         <button type="button" class="form-control btn btn-primary" ng-click="$ctrl.sendInvite()" ng-disabled="!$ctrl.isFormFilled()">Send Invite</button>
       </div>
     </div>
+    <div ng-if="$ctrl.invalidEmail">Invalid email(s)</div>
   </form>
 </div>
